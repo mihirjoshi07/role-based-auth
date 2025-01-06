@@ -1,11 +1,15 @@
 const express = require("express");
 const connectDb = require("./config/db");
 const authRoutes=require("./routes/auth");
+const userRoutes=require("./routes/user");
+
 const app = express();
  // Middleware to parse JSON
  app.use(express.json());
 
 app.use("/auth",authRoutes);
+app.use("/user",userRoutes);
+
 app.get("/health",(req,res)=>{
     return res.send("health route");
 })
