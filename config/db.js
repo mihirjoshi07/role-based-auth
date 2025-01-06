@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const connectDb = async () => {
     try {
-        const uri = "mongodb://localhost:27017/role"; // Replace myDatabase with your DB name
 
-        await mongoose.connect(uri, {
+        await mongoose.connect(process.env.URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
